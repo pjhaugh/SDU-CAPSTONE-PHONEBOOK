@@ -1,0 +1,16 @@
+#This is an example phonebook
+#Lines with a hash are comments and will be ignored
+#Phonebook files are .txt files that the phonebook app reads in to populate the list of contacts
+#First line is the name of the Phonebook, it may contain anything
+Example phonebook
+#Lines are seprerated by \n characters
+#Next line is the number of the switchboard that the extensions will be dialed through
+3015555555
+#No spaces, dashes, etc
+#Everything after are entries
+#Entries are of the form 
+#Department - Name - extension
+Astronomy - John Doe - 4335
+Accounting - David Wallace - 5667
+CEO - James Williams - 9909
+#No special eof
