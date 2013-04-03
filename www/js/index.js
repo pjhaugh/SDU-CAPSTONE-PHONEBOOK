@@ -18,7 +18,7 @@
  */
 var app = {
     initialize: function() {
-        this.bind();
+	this.bind();
     },
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
@@ -39,4 +39,7 @@ var app = {
         var completeElem = document.querySelector('#' + id + ' .complete');
         completeElem.className = completeElem.className.split('hide').join('');
     }
+
+
+
 };
