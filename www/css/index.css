@@ -25,15 +25,15 @@
 
 body {
     background-color:#EAF0F8;
-    background-image:linear-gradient(top, #EAF0F8 0%, #EAF0F8 51%);
-    background-image:-webkit-linear-gradient(top, #EAF0F8 0%, #EAF0F8 51%);
-    background-image:-ms-linear-gradient(top, #EAF0F8 0%, #EAF0F8 51%);
+    background-image:linear-gradient(top, #D7D7D7 0%, #FFFFC2 51%);
+    background-image:-webkit-linear-gradient(top, #D7D7D7 0%, #FFFFC2 51%);
+    background-image:-ms-linear-gradient(top, #D7D7D7 0%, #FFFFC2 51%);
     background-image:-webkit-gradient(
         linear,
         left top,
         left bottom,
-        color-stop(0, #EAF0F8),
-        color-stop(0.51, #EAF0F8)
+        color-stop(0, #D7D7D7),
+        color-stop(0.51, #FFFFC2)
     );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
@@ -75,12 +75,50 @@ body {
 
 /* List Layout */
 #list { width:screen.width; font-family:Georgia, Times, serif; font-size:15px; }
-#list ul { list-style: none; margin: 0; padding: 0; }
-#list ul li { margin 0; padding: 5px 0 5px 0; }
+#list ul { list-style: none; margin:0; padding:0; }
+#list ul li {margin:0;padding:5px 0 5px 0; }
 #list ul li a { display:block; text-decoration:none; color:#000000; background-color:#EAF0F8; line-height:30px;
   border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:0px; cursor:pointer; }
-#list ul li a strong { margin-right:10px; }
+#list ul li a strong { margin-right: 0px; }
 
+.tabs {
+  position: relative;   
+  min-height: 200px; /* This part sucks */
+  clear: both;
+  margin: 25px 0;
+}
+.tab {
+  float: left;
+}
+.tab label {
+  background: #eee; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  margin-left: -1px; 
+  position: relative;
+  left: 1px; 
+}
+.tab [type=radio] {
+  display: none;   
+}
+.content {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border: 1px solid #ccc; 
+}
+[type=radio]:checked ~ label {
+  background: white;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
 
 h1 {
     font-size:24px;
@@ -124,14 +162,4 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
-}
-
-.scroll {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    position: absolute;
-    top: 84px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
 }
