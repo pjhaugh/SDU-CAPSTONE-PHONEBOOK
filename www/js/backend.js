@@ -1,4 +1,4 @@
-var phonebookURL = "http://loacalhost/directory/www/res/phonebooks"
+var phonebookURL = "http://localhost/directory/www/res/phonebooks"
 
 function getPhonebooks() {
 	
