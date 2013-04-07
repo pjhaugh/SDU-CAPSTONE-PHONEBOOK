@@ -21,6 +21,8 @@ var app = {
 	this.bind();
 	this.store = new MemoryStore(function() {
         app.renderHomeView();
+		}
+	this.homeTpl = Handlebars.compile($("#home-tpl").html());	
     },
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
@@ -43,9 +45,16 @@ var app = {
     },
 	
 	renderHomeView: function() {
-		var html =
-			"<ul class='scroll'></ul>"
-		$('body').html(html);
+
+    $('body').html(this.homeTpl());
+	$('.search-key').on('keyup', $.proxy(this.findByName, this));
+	},
+	
+	findByName: function() {
+    var self = this;
+    this.store.findByName($('.search-key').val(), function(people) {
+        $('.peopleList').html(self.peopleList(people));
+    });
 	}
      
 
