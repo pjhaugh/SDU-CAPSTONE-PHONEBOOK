@@ -1,4 +1,5 @@
 drop table if exists `directory`;
+drop table if exists `organizations`;
 
 create table `directory`(
 `organization_id` int(3) NOT NULL,
@@ -15,6 +16,6 @@ create table `organizations`(
 PRIMARY KEY(`id`)
 );
 
-insert into `organizations` values (1, `UMD`, `301-305-1000`)
+insert into `organizations` values (1, `UMD`, `301-305-1000`);
 insert into `directory` values (1, 'Jane Doe', 'Astrophysics', 1123);
 insert into `directory` values (1, 'John Doe', 'Accounting', 1136);
