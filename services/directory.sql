@@ -16,6 +16,10 @@ create table `organizations`(
 PRIMARY KEY(`id`)
 );
 
+lock tables `organizations` write;
 insert into `organizations` values (1, `UMD`, `301-305-1000`);
+unlock tables;
+lock tables `directory` write;
 insert into `directory` values (1, 'Jane Doe', 'Astrophysics', 1123);
 insert into `directory` values (1, 'John Doe', 'Accounting', 1136);
+unlock tables;
