@@ -19,6 +19,8 @@
 var app = {
     initialize: function() {
 	this.bind();
+	this.store = new MemoryStore(function() {
+        app.renderHomeView();
     },
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
@@ -38,7 +40,15 @@ var app = {
         document.querySelector('#' + id + ' .pending').className += ' hide';
         var completeElem = document.querySelector('#' + id + ' .complete');
         completeElem.className = completeElem.className.split('hide').join('');
-    }
+    },
+	
+	renderHomeView: function() {
+		var html =
+			"<ul class='scroll'></ul>"
+		$('body').html(html);
+	}
+     
+
 
 
 
