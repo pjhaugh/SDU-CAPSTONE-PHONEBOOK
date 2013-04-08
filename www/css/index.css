@@ -78,7 +78,7 @@ body {
 ul.ourList{
     width:screen.width;
     font-family:Georgia, Times, serif;
-    font-size:15px;
+    font-size:3em;
     margin: 0;
     padding: 0;
     list-style: none;
