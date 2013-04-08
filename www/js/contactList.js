@@ -11,14 +11,14 @@ document.addEventListener("pagecreate", startup, false);
 
 function startup() {
     $('#contactList').append('<li>Fireball</li>');
-    if (!window.openDatabase) {
-	alert("Databases are unsupported in this browser.")
-    }
-    db = openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
-    if (dbCreated)
-    	db.transaction(getContacts, transaction_error);
-    else
-    	db.transaction(populateDB, transaction_error, populateDB_success);
+    //if (!window.openDatabase) {
+	//alert("Databases are unsupported in this browser.")
+    //}
+    //db = openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
+    //if (dbCreated)
+    //	db.transaction(getContacts, transaction_error);
+    //else
+    	//db.transaction(populateDB, transaction_error, populateDB_success);
 }
 
 function transaction_error(tx, error) {
