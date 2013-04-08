@@ -6,7 +6,7 @@ var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScro
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneGap Demo", 200000);
+    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
     if (dbCreated)
     	db.transaction(getContacts, transaction_error);
     else
@@ -24,7 +24,9 @@ function populateDB_success() {
 }
 
 function getContacts(tx) {
+	console.log("1");
 	var sql = "select o.organization_name, o.base_number from organizations";
+	console.log("2");
 	tx.executeSql(sql, [], getContacts_success);
 }
 
