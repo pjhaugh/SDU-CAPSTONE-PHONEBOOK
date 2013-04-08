@@ -103,18 +103,19 @@
     
     function populateDB(tx) {
     	$('#busy').show();
+	alert("In pop DB");
     	tx.executeSql('DROP TABLE IF EXISTS organizations');
     	var sql = 
     		"CREATE TABLE IF NOT EXISTS organizations ( " +
     		"`organization_name` varchar(50) NOT NULL,"+
     		"`base_number` varchar(12) NOT NULL,"+
     		"PRIMARY KEY(`base_number`)"+
-    		");"
-            tx.executeSql(sql);
+    		");";
+        tx.executeSql(sql);
         
-            tx.executeSql("INSERT INTO organizations (organization_name, base_number) VALUES (`UMD`, `301305`), " +
-			      "(`Other Place`, `1234567890,`)");
-
+        tx.executeSql("INSERT INTO organizations (organization_name, base_number) VALUES (`UMD`, `301305`), " +
+		      "(`Other Place`, `1234567890,`)");
+	alert("Out of pop DB");
     }
 </script>
 
