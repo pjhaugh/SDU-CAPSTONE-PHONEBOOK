@@ -28,16 +28,17 @@
             height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Phone Books</title>
-        <script> src="./js/jquery.js"</script>
-		<script> src="./js/home.js"</script>
+        <script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.0rc1.min.js"></script>
+		<script src="js/home.js"></script>
 
     </head>
     <body>
-	<div id = "home">
-                <div class="content" id= "bookList">
+	<div id="home" data-role="page">
+                <div class="content" >
                 
-                    <ul class="ourList" >
-                        <li>Test</li>
+                    <ul class="ourList" id= "bookList" data-role="listview" datafilter="true">
+						<li id= "10">Test</li>
                     </ul>
                 
                 </div>   
