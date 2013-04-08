@@ -65,9 +65,10 @@
 	    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
 	    if (dbCreated)
 	    	db.transaction(getContacts, transaction_error);
-	    else
+	    else{
 	    	db.transaction(populateDB, transaction_error);
 		db.transaction(populateDB_success, transaction_error);
+	    }
 	}
     
 	function transaction_error(tx, error) {
@@ -76,8 +77,8 @@
 	}
     
 	function populateDB_success() {
-	    dbCreated = true;
 	    alert("IN succ");
+	    dbCreated = true;
 	    db.transaction(getContacts, transaction_error);
 	    alert("out succ");
 	}
@@ -85,18 +86,19 @@
     function getContacts(tx) {
     	alert("in");
     	var sql = "select organization_name from organizations";
-    	tx.executeSql(sql, [], getContacts_success);
+    	tx.executeSql(sql, [], getContacts_success, transaction_error);
 	alert("out");
     }
 
     function getContacts_success(tx, results) {
+	alert("In get con succ")
     	$('#busy').hide();
         var len = results.rows.length;
         for (var i=0; i<len; i++) {
         	var contact = results.rows.item(i);
+		alert(contact.String);
     		$('#contactList').append('<li><a href="contactdetails.html?id=' + contact.base_number + '">' +
-    				'<p class="line1">' + contact.name + '</p>' +
-    				'<span class="bubble">' + contact.base_number + '</span></a></li>');
+    				'<p class="line1">' + contact.name + '</p></a></li>');
         }
     	setTimeout(function(){
     		scroll.refresh();
@@ -106,7 +108,6 @@
     
     function populateDB(tx) {
     	$('#busy').show();
-	alert("In pop DB");
     	tx.executeSql('DROP TABLE IF EXISTS organizations');
     	var sql = 
     		"CREATE TABLE IF NOT EXISTS organizations ( " +
@@ -116,9 +117,8 @@
     		");";
         tx.executeSql(sql);
         
-        tx.executeSql("INSERT INTO organizations (organization_name, base_number) VALUES (`UMD`, `301305`), " +
-		      "(`Other Place`, `1234567890,`)");
-	alert("Out of pop DB");
+        tx.executeSql("INSERT INTO organizations VALUES ('UMD', '301305'), " +
+		      "('Other Place', '1234567890,')");
     }
 </script>
 
