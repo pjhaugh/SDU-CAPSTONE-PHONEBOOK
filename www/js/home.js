@@ -1,8 +1,11 @@
+console.log("HI");
+
 var serviceURL = "http://localhost/directory/services/";
 
 var phoneBook;
 
-$("#home").live("pagecreate", function(event) {
+$("#home").on("load", function(event) {
+	console.log("Stuff");
 	getBooks();
 });
 

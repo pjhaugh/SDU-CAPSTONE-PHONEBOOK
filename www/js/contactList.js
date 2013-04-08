@@ -1,4 +1,4 @@
-$('#numberList').live('pageshow', function(event) {
+$('#numberList').on('pageshow', function(event) {
 	var id = getUrlVars()["id"];
 	$.getJSON(serviceURL + 'getContacts.php?id='+id, getContactList(data));
 });
@@ -9,7 +9,7 @@ var contacts = new Array();
 var nameSorted = new Array();
 var depSorted = new Array();
 
-$('#numberList').bind('pageinit', function(event) {
+$('#numberList').on('pageinit', function(event) {
 	getContactList();
 });
 
