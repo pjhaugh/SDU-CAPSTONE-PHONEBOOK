@@ -1,5 +1,6 @@
-$('#numberList').on('pageshow', function(event) {
-	var id = getUrlVars()["id"];
+$(document).on('pageshow', '[data-role=page]', function(event) {
+	console.log("HI");
+	var id = $getUrlVars()["id"];
 	$.getJSON(serviceURL + 'getContacts.php?id='+id, getContactList(data));
 });
 
