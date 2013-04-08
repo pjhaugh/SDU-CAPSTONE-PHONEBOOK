@@ -21,7 +21,7 @@ var app = {
 	this.bind();
 	this.store = new MemoryStore(function() {
         app.renderHomeView();
-		}
+		});
 	this.homeTpl = Handlebars.compile($("#home-tpl").html());
 	this.peopleList = Handlebars.compile($("#employee-li-tpl").html());	
     },
