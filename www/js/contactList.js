@@ -1,3 +1,4 @@
+function startJS(){
 var db;
 var dbCreated = false;
 
@@ -82,4 +83,5 @@ function populateDB(tx) {
         tx.executeSql("INSERT INTO organizations (organization_name, base_number) VALUES (`UMD`, `301305`), " +
 		      "(`Other Place`, `1234567890,`)");
 
+}
 }
