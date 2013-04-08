@@ -3,15 +3,14 @@ var dbCreated = false;
 
 var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 
-document.addEventListener("deviceready", onDeviceReady, true);
-console.log("3");
-function onDeviceReady() {
+document.addEventListener("pageinit", function(){
+    console.log("3");
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
     if (dbCreated)
     	db.transaction(getContacts, transaction_error);
     else
     	db.transaction(populateDB, transaction_error, populateDB_success);
-}
+}, true);
 
 function transaction_error(tx, error) {
 	$('#busy').hide();
