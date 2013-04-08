@@ -12,13 +12,11 @@ PRIMARY KEY(`extension`)
 );
 
 create table `organizations`(
-`id` int(3) NOT NULL AUTO_INCREMENT,
 `Organization_name` varchar(50) NOT NULL,
 `Base_number` varchar(12) NOT NULL,
-PRIMARY KEY(`id`)
+PRIMARY KEY(`Base_number`)
 );
 
-insert into `organizations` values (1, 'UMD', '301305');
-insert into `directory` values (1, 'Jane Doe', 'Astrophysics', 1123);
-insert into `directory` values (1, 'John Doe', 'Accounting', 1136);
+insert into `organizations` values ('UMD', '301305'), ('Other Place', '1115559907,');
+insert into `directory` values (1, 'Jane Doe', 'Astrophysics', 1123), (1, 'John Doe', 'Accounting', 1136);
 unlock tables;

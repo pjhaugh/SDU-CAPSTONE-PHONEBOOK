@@ -1,3 +1,8 @@
+$('#contactListPage').live('pageshow', function(event) {
+	var id = getUrlVars()["id"];
+	$.getJSON(serviceURL + 'getContacts.php?id='+id, getContactList(data));
+});
+
 var serviceURL = "http://localhost/directory/services/";
 
 var contacts;
