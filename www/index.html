@@ -61,7 +61,7 @@
 	    if (!window.openDatabase) {
 		alert("Databases are unsupported in this browser.")
 	    }
-	    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 200000);
+	    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 2000000);
 	    if (dbCreated)
 	    	db.transaction(getContacts, transaction_error);
 	    else{
@@ -112,7 +112,7 @@
         tx.executeSql(sql);
         
         tx.executeSql("INSERT INTO organizations VALUES ('UMD', '301305'), " +
-		      "('Other Place', '1234567890,'), ") +
+		      "('Other Place000', '1234567890,'), ") +
 		      "('Other Place1', '1567890,'), " +
 		      "('Other Place2', '123456789,'), " +
 		      "('Other Place3', '123456780,'), " +
