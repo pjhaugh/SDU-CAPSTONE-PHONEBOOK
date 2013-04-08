@@ -68,6 +68,7 @@
 	    	db.transaction(populateDB, transaction_error);
 		db.transaction(populateDB_success, transaction_error);
 	    }
+		$('#busy').hide();
 	}
     
 	function transaction_error(tx, error) {
