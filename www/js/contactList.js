@@ -11,7 +11,10 @@ document.addEventListener("pagecreate", startup, false);
 
 function startup() {
     $('#contactList').append('<li>Fireball</li>');
-    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
+    if (!window.openDatabase) {
+	alert("Databases are unsupported in this browser.")
+    }
+    db = openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
     if (dbCreated)
     	db.transaction(getContacts, transaction_error);
     else
