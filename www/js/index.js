@@ -22,7 +22,8 @@ var app = {
 	this.store = new MemoryStore(function() {
         app.renderHomeView();
 		}
-	this.homeTpl = Handlebars.compile($("#home-tpl").html());	
+	this.homeTpl = Handlebars.compile($("#home-tpl").html());
+	this.peopleList = Handlebars.compile($("#employee-li-tpl").html());	
     },
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
@@ -53,7 +54,7 @@ var app = {
 	findByName: function() {
     var self = this;
     this.store.findByName($('.search-key').val(), function(people) {
-        $('.peopleList').html(self.peopleList(people));
+        $('.people-list').html(self.peopleList(people));
     });
 	}
      
