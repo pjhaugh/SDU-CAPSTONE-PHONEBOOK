@@ -18,7 +18,7 @@
 	
 	<div id="wrapper">
 		<ul id="contactList" class="icon-list"></ul>
-                <li><button id="hideButton" type="button" onclick="startup()">Load</button></li>
+                <li><button id="hideButton" type="button" onclick="$('hideButton').hide();  startup()">Load</button></li>
 	</div>
 
 	<div id="busy"/>Loading...</div>
@@ -76,7 +76,9 @@
     
 	function populateDB_success() {
 	    dbCreated = true;
+	    alert("IN succ");
 	    db.transaction(getContacts, transaction_error);
+	    alert("out succ");
 	}
 
     function getContacts(tx) {
