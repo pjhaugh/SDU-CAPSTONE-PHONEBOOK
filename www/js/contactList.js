@@ -1,7 +1,6 @@
 $(document).on('pageshow', '[data-role=page]', function(event) {
-	console.log("HI");
 	var id = getUrlVars()["id"];
-	$.getJSON(serviceURL + 'getContacts.php?id='+id, getContactList(data));
+	$.getJSON(serviceURL + 'getContacts.php?id='+id, getContactList);
 });
 
 var serviceURL = "http://localhost/directory/services/";
