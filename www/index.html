@@ -62,12 +62,9 @@
 		alert("Databases are unsupported in this browser.")
 	    }
 	    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 2000000);
-	    if (dbCreated)
-	    	db.transaction(getContacts, transaction_error);
-	    else{
+	    
 	    	db.transaction(populateDB, transaction_error);
 		db.transaction(populateDB_success, transaction_error);
-	    }
 		$('#busy').hide();
 	}
     
