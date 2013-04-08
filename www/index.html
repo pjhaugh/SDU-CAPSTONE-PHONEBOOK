@@ -90,7 +90,6 @@
         var len = results.rows.length;
         for (var i=0; i<len; i++) {
         	var contact = results.rows.item(i);
-		alert(contact.String);
     		$('#contactList').append('<li><a href="contactdetails.html?id=' + contact.base_number + '">' +
     				'<p class="line1">' + contact.organization_name + '</p></a></li>');
         }
