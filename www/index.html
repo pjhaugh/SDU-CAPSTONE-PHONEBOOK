@@ -58,7 +58,6 @@
 	document.addEventListener("pagecreate", startup, false);
 
 	function startup() {
-	    $('#contactList').append('<li>Fireball</li>');
 	    if (!window.openDatabase) {
 		alert("Databases are unsupported in this browser.")
 	    }
@@ -87,14 +86,13 @@
     }
 
     function getContacts_success(tx, results) {
-	alert("In get con succ")
     	$('#busy').hide();
         var len = results.rows.length;
         for (var i=0; i<len; i++) {
         	var contact = results.rows.item(i);
 		alert(contact.String);
     		$('#contactList').append('<li><a href="contactdetails.html?id=' + contact.base_number + '">' +
-    				'<p class="line1">' + contact.name + '</p></a></li>');
+    				'<p class="line1">' + contact.organization_name + '</p></a></li>');
         }
     	setTimeout(function(){
     		scroll.refresh();
