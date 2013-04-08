@@ -1,6 +1,6 @@
 $(document).on('pageshow', '[data-role=page]', function(event) {
 	console.log("HI");
-	var id = $getUrlVars()["id"];
+	var id = getUrlVars()["id"];
 	$.getJSON(serviceURL + 'getContacts.php?id='+id, getContactList(data));
 });
 
@@ -13,6 +13,21 @@ var depSorted = new Array();
 $('#numberList').on('pageinit', function(event) {
 	getContactList();
 });
+
+
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
 
 function getContactList() {
 		$('#contactList li').remove();
