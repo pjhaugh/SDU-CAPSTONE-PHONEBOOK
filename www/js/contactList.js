@@ -3,6 +3,28 @@ var dbCreated = false;
 
 var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some  more dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+
+
 document.addEventListener("deviceready", function(){
     console.log("3");
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
