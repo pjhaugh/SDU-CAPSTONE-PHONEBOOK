@@ -80,10 +80,10 @@
 	}
 
     function getContacts(tx) {
-    	console.log("1");
+    	alert("in");
     	var sql = "select organization_name from organizations";
-    	console.log("2");
     	tx.executeSql(sql, [], getContacts_success);
+	alert("out");
     }
 
     function getContacts_success(tx, results) {
