@@ -3,8 +3,8 @@ var dbCreated = false;
 
 var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
+document.addEventListener("deviceready", onDeviceReady, true);
+console.log("3");
 function onDeviceReady() {
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
     if (dbCreated)
