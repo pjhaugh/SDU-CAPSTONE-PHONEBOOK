@@ -27,6 +27,9 @@ $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 
+
+
+$(document).ready(function(){
 document.addEventListener("pagecreate", function(){
     console.log("3");
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
@@ -35,6 +38,7 @@ document.addEventListener("pagecreate", function(){
     else
     	db.transaction(populateDB, transaction_error, populateDB_success);
 }, false);
+});
 
 function transaction_error(tx, error) {
 	$('#busy').hide();
