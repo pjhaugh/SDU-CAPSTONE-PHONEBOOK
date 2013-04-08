@@ -1,4 +1,4 @@
-$('#contactListPage').live('pageshow', function(event) {
+$('#numberList').live('pageshow', function(event) {
 	var id = getUrlVars()["id"];
 	$.getJSON(serviceURL + 'getContacts.php?id='+id, getContactList(data));
 });
@@ -6,8 +6,10 @@ $('#contactListPage').live('pageshow', function(event) {
 var serviceURL = "http://localhost/directory/services/";
 
 var contacts = new Array();
+var nameSorted = new Array();
+var depSorted = new Array();
 
-$('#contactListPage').bind('pageinit', function(event) {
+$('#numberList').bind('pageinit', function(event) {
 	getContactList();
 });
 
@@ -15,14 +17,27 @@ function getContactList() {
 	$.getJSON(serviceURL + 'getContact.php', function(data) {
 		$('#contactList li').remove();
 		for (i in data.items) {
-		
-		
-		
+	           contacts.push(i);
 		}
-		contacts = data.items;
-		$.each(contacts, function(index, contact) {
-			$('#contactList').append('<li><a href="tel:id' + contact.extension + '">' +
-					'<h4>' + contact.name + contact.department + '</h4>')
+		var sort_by = function(field, reverse, primer){
+			
+		   var key = function (x) {return primer ? primer(x[field]) : x[field]};
+		   return function (a,b) {
+			  var A = key(a), B = key(b);
+			  return ( (A < B) ? -1 : ((A > B) ? 1 : 0) ) * [-1,1][+!!reverse];                  
+			}
+		}
+		
+		nameSorted = contacts.sort(sort_by('name', true, function(a){return a.toUpperCase()}));
+		depSorted = nameSorted.sort(sort_by('department', true, function(a){return a.toUpperCase()}));
+		
+		$.each(nameSorted, function(index, nameSorted) {
+			$('#namelist').append('<li><a href="tel:id' + nameSorted(index).extension + '"</li>' +
+					 nameSorted(index).name + ' : ' + nameSorted(index).department)
+		});
+		$.each(depSorted, function(index, depSorted) {
+			$('#deplist').append('<li><a href="tel:id' + depSorted(index).extension + '"</li>' +
+					 depSorted(index).name + ' : ' + depSorted(index).department)
 		});
 		$('#contactList').listview('refresh');
 	});

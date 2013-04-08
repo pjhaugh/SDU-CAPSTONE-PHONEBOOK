@@ -29,6 +29,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Phone Book</title>
         <script> src="./js/jquery.js"</script>
+        <script> src="./js/contactList.js"</script>
 
     </head>
     <body>
@@ -54,24 +55,16 @@
                 <label for="tab-1">Name</label>  
                 <div class="content">
                 
-                    <ul class="ourList">
-                        <li>3015534587</li>
-                        <li>9998887777</li>
-                        <li>1234567890</li>
-                        <li>9283874754</li>
+                    <ul class="ourList" id="namelist">
                     </ul>
                 
                 </div> 
             </div>
             <div class="tab">
                 <input type="radio" id="tab-2" name="tab-group-1" checked>
-                <label for="tab-2">Directory</label>
+                <label for="tab-2">Department</label>
                 <div class="content">
-                    <ul class="ourList">
-                        <li>3015534587</li>
-                        <li>9998887777</li>
-                        <li>1234567890</li>
-                        <li>9283874754</li>
+                    <ul class="ourList" id="deplist">
                     </ul>
                 </div> 
             </div>
