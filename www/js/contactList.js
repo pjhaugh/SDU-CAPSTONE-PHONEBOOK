@@ -16,14 +16,15 @@ $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
+
 $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').append('<li>some dynamic html</li>');
 
 document.addEventListener("deviceready", function(){
     console.log("3");
@@ -32,7 +33,7 @@ document.addEventListener("deviceready", function(){
     	db.transaction(getContacts, transaction_error);
     else
     	db.transaction(populateDB, transaction_error, populateDB_success);
-}, true);
+}, false);
 
 function transaction_error(tx, error) {
 	$('#busy').hide();
