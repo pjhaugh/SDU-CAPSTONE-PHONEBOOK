@@ -24,7 +24,7 @@ function populateDB_success() {
 }
 
 function getContacts(tx) {
-	var sql = "select e.name, e.department from directory where e.organization_name = `UMD`";
+	var sql = "select o.organization_name, o.base_number from organizations";
 	tx.executeSql(sql, [], getContacts_success);
 }
 
@@ -33,10 +33,9 @@ function getContacts_success(tx, results) {
     var len = results.rows.length;
     for (var i=0; i<len; i++) {
     	var contact = results.rows.item(i);
-		$('#contactList').append('<li><a href="contactdetails.html?id=' + contact.id + '">' +
+		$('#contactList').append('<li><a href="contactdetails.html?id=' + contact.base_number + '">' +
 				'<p class="line1">' + contact.name + '</p>' +
-				'<p class="line2">' + contact.title + '</p>' +
-				'<span class="bubble">' + contact.reportCount + '</span></a></li>');
+				'<span class="bubble">' + contact.base_number + '</span></a></li>');
     }
 	setTimeout(function(){
 		scroll.refresh();
@@ -46,18 +45,16 @@ function getContacts_success(tx, results) {
 
 function populateDB(tx) {
 	$('#busy').show();
-	tx.executeSql('DROP TABLE IF EXISTS directory');
+	tx.executeSql('DROP TABLE IF EXISTS organizations');
 	var sql = 
-		"CREATE TABLE IF NOT EXISTS directory ( " +
-		"`organization_name` varchar(50) NOT NULL," +
-	        "`name` varchar(50) NOT NULL," +
-	        "`department` varchar(50) NOT NULL," +
-	        "`extension` varchar(5) NOT NULL," +
-	        "PRIMARY KEY(`extension`)" +
-	        ");";
+		"CREATE TABLE IF NOT EXISTS organizations ( " +
+		"`organization_name` varchar(50) NOT NULL,"+
+		"`base_number` varchar(12) NOT NULL,"+
+		"PRIMARY KEY(`base_number`)"+
+		");"
         tx.executeSql(sql);
     
-        tx.executeSql("INSERT INTO directory (organization_name, name, department, extension) VALUES (`UMD`, `John Doe`, `Agriculture`, `12234`), " +
-		      "(`Other Place`, `Jane Smith`, `Lazer Research`, `63230`)");
+        tx.executeSql("INSERT INTO organizations (organization_name, base_number) VALUES (`UMD`, `301305`), " +
+		      "(`Other Place`, `1234567890,`)");
 
 }
