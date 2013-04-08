@@ -3,29 +3,6 @@ var dbCreated = false;
 
 var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 
-document.getElementById('contactList').innerHTML = '<li>Fireball</li>';
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some  more dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
 
 
 
