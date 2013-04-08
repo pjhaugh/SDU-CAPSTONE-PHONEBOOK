@@ -100,7 +100,8 @@ ul.ourList li{
 }
 .tabs {
   position: relative;   
-  min-height: 200px; /* This part sucks */
+  min-height: 400px;
+  min-width: screen.width/2;
   clear: both;
   margin: 25px 0;
 }
