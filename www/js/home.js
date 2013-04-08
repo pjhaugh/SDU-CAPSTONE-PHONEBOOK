@@ -3,7 +3,6 @@ var serviceURL = "http://localhost/directory/services/";
 var phoneBook;
 
 $("#home").live("pagecreate", function(event) {
-	console.log("FUCK EVERYTHING");
 	getBooks();
 });
 
