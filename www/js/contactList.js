@@ -27,7 +27,7 @@ $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 
-document.addEventListener("deviceready", function(){
+document.addEventListener("pagecreate", function(){
     console.log("3");
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
     if (dbCreated)
