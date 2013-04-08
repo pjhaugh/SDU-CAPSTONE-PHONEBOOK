@@ -25,15 +25,15 @@
 
 body {
     background-color:#EAF0F8;
-    background-image:linear-gradient(top, #D7D7D7 0%, #FFFFC2 51%);
-    background-image:-webkit-linear-gradient(top, #D7D7D7 0%, #FFFFC2 51%);
-    background-image:-ms-linear-gradient(top, #D7D7D7 0%, #FFFFC2 51%);
+    background-image:linear-gradient(top, #EAF0F8 0%, #EAF0F8 51%);
+    background-image:-webkit-linear-gradient(top, #EAF0F8 0%, #EAF0F8 51%);
+    background-image:-ms-linear-gradient(top, #EAF0F8 0%, #EAF0F8 51%);
     background-image:-webkit-gradient(
         linear,
         left top,
         left bottom,
-        color-stop(0, #D7D7D7),
-        color-stop(0.51, #FFFFC2)
+        color-stop(0, #EAF0F8),
+        color-stop(0.51, #EAF0F8)
     );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
