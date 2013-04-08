@@ -73,21 +73,17 @@
     
 	function transaction_error(tx, error) {
 		$('#busy').hide();
-	    alert("Database Error: " + error);
+	    alert("Database Error: " + error.code);
 	}
     
 	function populateDB_success() {
-	    alert("IN succ");
 	    dbCreated = true;
 	    db.transaction(getContacts, transaction_error);
-	    alert("out succ");
 	}
 
     function getContacts(tx) {
-    	alert("in");
-    	var sql = "select organization_name from organizations";
+    	var sql = "SELECT * FROM organizations";
     	tx.executeSql(sql, [], getContacts_success, transaction_error);
-	alert("out");
     }
 
     function getContacts_success(tx, results) {
