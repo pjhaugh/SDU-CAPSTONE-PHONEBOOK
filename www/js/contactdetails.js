@@ -4,14 +4,15 @@ var id = getUrlVars()["id"];
 
 var db;
 
-document.addEventListener("deviceready", onDeviceReady, false);
 
-function onDeviceReady() {
+$(document).ready(function(){
+	document.addEventListener("deviceready", function(){
 	console.log("opening database");
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
 	console.log("database opened");
-    db.transaction(getEmployee, transaction_error);
-}
+    db.transaction(getEmployee, transaction_error);}, false);
+
+});
 
 function transaction_error(tx, error) {
 	$('#busy').hide();
