@@ -25,6 +25,7 @@ $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
 $('#contactList').append('<li>some dynamic html</li>');
+$('#contactList').listview('refresh');
 
 document.addEventListener("deviceready", function(){
     console.log("3");
