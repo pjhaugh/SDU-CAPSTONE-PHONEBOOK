@@ -29,16 +29,18 @@ $('#contactList').append('<li>some dynamic html</li>');
 
 
 
-$(document).ready(function(){
-document.addEventListener("pagecreate", function(){
+
+document.addEventListener("pagecreate", startup, false);
+
+function startup() {
+	
     console.log("3");
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
     if (dbCreated)
     	db.transaction(getContacts, transaction_error);
     else
     	db.transaction(populateDB, transaction_error, populateDB_success);
-}, false);
-});
+}
 
 function transaction_error(tx, error) {
 	$('#busy').hide();
