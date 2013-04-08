@@ -18,12 +18,7 @@
  */
 var app = {
     initialize: function() {
-	this.bind();
-	this.store = new MemoryStore(function() {
-        app.renderHomeView();
-		});
-	this.homeTpl = Handlebars.compile($("#home-tpl").html());
-	this.peopleList = Handlebars.compile($("#employee-li-tpl").html());	
+	this.bind();	
     },
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
