@@ -40,9 +40,7 @@ var db;
 
 $(document).ready(function(){
 	document.addEventListener("deviceready", function(){
-	console.log("opening database");
-    db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
-	console.log("database opened");
+    db = window.openDatabase("EmployeeDirectoryDB", "1.0", "Phonebook2", 200000);
     db.transaction(getEmployee, transaction_error);}, false);
 
 });
