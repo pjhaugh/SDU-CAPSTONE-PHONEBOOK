@@ -2,19 +2,18 @@ var serviceURL = "http://localhost/directory/services/";
 
 var phoneBook;
 
-$('#homePage').bind('pageinit', function(event) {
+$('#home').bind('pageinit', function(event) {
 	getBooks();
 });
 
 function getBooks() {
-$('#bookList li').remove();
 	$.getJSON(serviceURL + 'getBooks.php', function(data) {
-		
+		$.each('#bookList li').remove();
 		phoneBook = data.items;
 		$.each(phoneBook, function(index, phoneBook) {
 			$('#bookList').append('<li><a href="numberList.html?id=' + phonebook.baseNumber + '">' +
-					'<h4>'   phoneBook.name   '<h/4>')
+					   phoneBook.name   '</li>')
 		});
-		$('#contactList').listview('refresh');
+		$('#bookList').listview('refresh');
 	});
 }
