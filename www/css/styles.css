@@ -16,7 +16,7 @@ ul
 
 body {
 
-	width: : 100%;
+	width: 100%;
 	background: #DCDCDC;
 }
 
@@ -80,6 +80,15 @@ li .line2 {
 	padding-bottom: 10px;
 	color: #666666;
 }
+
+
+button .btn {
+	
+	
+	
+	
+}
+
 
 li .bubble {
 	clear:both;
