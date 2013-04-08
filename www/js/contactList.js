@@ -1,31 +1,33 @@
 var db;
 var dbCreated = false;
 
-var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
+document.write("yay");
 
-document.getElementById('contactList').innerHTML = '<li>Fireball</li>';
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some  more dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
+//var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
+//document.getElementById('contactList').innerHTML = '<li>Fireball</li>';
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some  more dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
 
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
 
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
-$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
+//$('#contactList').append('<li>some dynamic html</li>');
 
 document.addEventListener("deviceready", function(){
     console.log("3");
