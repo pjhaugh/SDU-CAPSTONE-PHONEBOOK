@@ -5,9 +5,26 @@ var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScro
 
 
 
+var deviceReadyDeferred = $.Deferred();
+var jqmReadyDeferred = $.Deferred();
 
+document.addEventListener("deviceReady", deviceReady, false);
 
-document.addEventListener("pagecreate", startup, false);
+function deviceReady() {
+  deviceReadyDeferred.resolve();
+}
+
+$(document).one("mobileinit", function () {
+  jqmReadyDeferred.resolve();
+});
+
+$.when(deviceReadyDeferred, jqmReadyDeferred).then(doWhenBothFrameworksLoaded);
+
+function doWhenBothFrameworksLoaded() {
+  startup();
+}
+
+//document.addEventListener("pagecreate", startup, false);
 
 function startup() {
     $('#contactList').append('<li>Fireball</li>');
