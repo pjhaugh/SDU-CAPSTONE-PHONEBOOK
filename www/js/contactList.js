@@ -14,7 +14,6 @@ $('#numberList').bind('pageinit', function(event) {
 });
 
 function getContactList() {
-	$.getJSON(serviceURL + 'getContact.php', function(data) {
 		$('#contactList li').remove();
 		for (i in data.items) {
 	           contacts.push(i);
@@ -40,5 +39,4 @@ function getContactList() {
 					 depSorted(index).name + ' : ' + depSorted(index).department)
 		});
 		$('#contactList').listview('refresh');
-	});
 }		

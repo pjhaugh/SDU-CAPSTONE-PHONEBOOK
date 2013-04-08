@@ -14,7 +14,7 @@ PRIMARY KEY(`extension`)
 create table `organizations`(
 `organization_name` varchar(50) NOT NULL,
 `base_number` varchar(12) NOT NULL,
-PRIMARY KEY(`Base_number`)
+PRIMARY KEY(`base_number`)
 );
 
 insert into `organizations` values ('UMD', '301305'), ('Other Place', '1115559907,');
