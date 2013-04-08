@@ -11,9 +11,9 @@ function getContactList() {
 		$('#contactList li').remove();
 		contacts = data.items;
 		$.each(contacts, function(index, contact) {
-			$('#contactList').append('<li><a href="contactdetails.html?id=' + contact.id + '">' +
-					'<h4>' + contact.name + contact.Department + '<h/4>')
+			$('#contactList').append('<li><a href="tel:?id=' + contact.organization_id + '">' +
+					'<h4>' + contact.name + contact.department + '<h/4>')
 		});
 		$('#contactList').listview('refresh');
 	});
-}
+}		
