@@ -10,8 +10,6 @@ var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScro
 document.addEventListener("pagecreate", startup, false);
 
 function startup() {
-	
-    console.log("3");
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook", 200000);
     if (dbCreated)
     	db.transaction(getContacts, transaction_error);
