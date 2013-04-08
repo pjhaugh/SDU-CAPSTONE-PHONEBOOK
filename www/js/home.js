@@ -4,7 +4,7 @@ var serviceURL = "http://localhost/directory/services/";
 
 var phoneBook;
 
-$("#home").on("load", function(event) {
+$(document).on('pageshow', '[data-role=page]', function(event) {
 	console.log("Stuff");
 	getBooks();
 });
