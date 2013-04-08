@@ -1,57 +1,63 @@
-$(document).on('pageshow', '[data-role=page]', function(event) {
-	var id = getUrlVars()["id"];
-	$.getJSON(serviceURL + 'getContacts.php?id='+id, getContactList);
-});
+var db;
+var dbCreated = false;
 
-var serviceURL = "http://localhost/directory/services/";
+var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 
-var contacts = new Array();
-var nameSorted = new Array();
-var depSorted = new Array();
+document.addEventListener("deviceready", onDeviceReady, false);
 
-$('#numberList').on('pageinit', function(event) {
-	getContactList();
-});
-
-
-function getUrlVars()
-{
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
+function onDeviceReady() {
+    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneGap Demo", 200000);
+    if (dbCreated)
+    	db.transaction(getContacts, transaction_error);
+    else
+    	db.transaction(populateDB, transaction_error, populateDB_success);
 }
 
+function transaction_error(tx, error) {
+	$('#busy').hide();
+    alert("Database Error: " + error);
+}
 
-function getContactList() {
-		$('#contactList li').remove();
-		for (i in data.items) {
-	           contacts.push(i);
-		}
-		var sort_by = function(field, reverse, primer){
-			
-		   var key = function (x) {return primer ? primer(x[field]) : x[field]};
-		   return function (a,b) {
-			  var A = key(a), B = key(b);
-			  return ( (A < B) ? -1 : ((A > B) ? 1 : 0) ) * [-1,1][+!!reverse];                  
-			}
-		}
-		
-		nameSorted = contacts.sort(sort_by('name', true, function(a){return a.toUpperCase()}));
-		depSorted = nameSorted.sort(sort_by('department', true, function(a){return a.toUpperCase()}));
-		
-		$.each(nameSorted, function(index, nameSorted) {
-			$('#namelist').append('<li><a href="tel:id' + nameSorted(index).extension + '"</li>' +
-					 nameSorted(index).name + ' : ' + nameSorted(index).department)
-		});
-		$.each(depSorted, function(index, depSorted) {
-			$('#deplist').append('<li><a href="tel:id' + depSorted(index).extension + '"</li>' +
-					 depSorted(index).name + ' : ' + depSorted(index).department)
-		});
-		$('#contactList').listview('refresh');
-}		
+function populateDB_success() {
+	dbCreated = true;
+    db.transaction(getContacts, transaction_error);
+}
+
+function getContacts(tx) {
+	var sql = "select e.name, e.department from directory where e.organization_name = `UMD`";
+	tx.executeSql(sql, [], getContacts_success);
+}
+
+function getContacts_success(tx, results) {
+	$('#busy').hide();
+    var len = results.rows.length;
+    for (var i=0; i<len; i++) {
+    	var contact = results.rows.item(i);
+		$('#contactList').append('<li><a href="contactdetails.html?id=' + contact.id + '">' +
+				'<p class="line1">' + contact.name + '</p>' +
+				'<p class="line2">' + contact.title + '</p>' +
+				'<span class="bubble">' + contact.reportCount + '</span></a></li>');
+    }
+	setTimeout(function(){
+		scroll.refresh();
+	},100);
+	db = null;
+}
+
+function populateDB(tx) {
+	$('#busy').show();
+	tx.executeSql('DROP TABLE IF EXISTS directory');
+	var sql = 
+		"CREATE TABLE IF NOT EXISTS directory ( " +
+		"`organization_name` varchar(50) NOT NULL," +
+	        "`name` varchar(50) NOT NULL," +
+	        "`department` varchar(50) NOT NULL," +
+	        "`extension` varchar(5) NOT NULL," +
+	        "PRIMARY KEY(`extension`)" +
+	        ");";
+        tx.executeSql(sql);
+    
+        tx.executeSql("INSERT INTO directory (organization_name, name, department, extension) VALUES (`UMD`, `John Doe`, `Agriculture`, `12234`), " +
+		      "(`Other Place`, `Jane Smith`, `Lazer Research`, `63230`)");
+
+}
