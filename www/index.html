@@ -80,9 +80,6 @@
 
     function getContacts(tx) {
     	var sql = "SELECT * FROM organizations";
-	alert(sql);
-	var output = tx.executeSql(sql);
-	alert(output);
     	tx.executeSql(sql, [], getContacts_success, transaction_error);
     }
 
