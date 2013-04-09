@@ -54,7 +54,7 @@ function transaction_error(tx, error) {
 }
 
 function getEmployee(tx) {
-	var sql = "SELECT name, extension FROM directory WHERE organization_num = '" + id + "'";
+	var sql = "SELECT * FROM directory WHERE organization_num = '" + id + "'";
 	alert(sql);
 	var output = tx.executeSql(sql);
 	alert(output);
