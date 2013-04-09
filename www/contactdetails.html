@@ -69,7 +69,7 @@ function populateDB(tx) {
     		"`name` varchar(50) NOT NULL,"+
     		"`organization_num` varchar(12) NOT NULL,"+
 		"`extension` varchar(7) NOT NULL" +
-    		");";
+    		")";
         tx.executeSql(sql);
         
 	tx.executeSql("INSERT INTO directory VALUES ('Alexander Chen', '301405', '6798'), " +
