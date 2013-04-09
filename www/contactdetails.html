@@ -40,9 +40,7 @@ function listStart() {
 	alert("Databases are unsupported in this browser.")
     }
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 2000000);
-    alert("1");
     db.transaction(populateDB, transaction_error);
-    alert("2");
     db.transaction(populateDB_success, transaction_error);
     $('#busy').hide();
 }
@@ -54,8 +52,7 @@ function transaction_error(tx, error) {
 }
 
 function getEmployee(tx) {
-	//var sql = "SELECT d FROM directory WHERE d.organization_name = '" + id + "'";
-	var sql = "SELECT * FROM directory";
+	var sql = "SELECT * FROM directory WHERE organization_num = '" + id + "'";
 	tx.executeSql(sql, [], getEmployee_success, transaction_err);
 }
 
