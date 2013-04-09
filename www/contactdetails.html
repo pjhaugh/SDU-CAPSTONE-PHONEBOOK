@@ -88,13 +88,14 @@ function populateDB(tx) {
 
 function getEmployee_success(tx, results) {
 	$('#busy').hide();
+	alert("5");
 	var employee = results.rows.item(0);
 	var len = results.rows.length;
 	alert(len);
 	for (var i=0; i< len; i++) {
 	    var contact = results.rows.item(i);
 	    alert(contact.name);
-	    $('#contactList').append('<li><a rel="external" href="tel:' + contact.organization_num + contact.extension+'">' + contact.name + '</a></li>');
+	    $('#contactList').append('<li><a rel="external" href="tel:' + contact.organization_num + contact.extension+'">' + '<p class="line1">'+contact.name + '</p></a></li>');
 	}
 	setTimeout(function(){
 		scroll.refresh();
