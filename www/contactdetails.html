@@ -35,10 +35,13 @@ var db;
 
 
 function listStart() {
-    alert("FUCKYEAH");
+    if (!window.openDatabase) {
+	alert("Databases are unsupported in this browser.")
+    }
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 2000000);
     db.transaction(populateDB, transaction_error);
-    db.transaction(getEmployee, transaction_error);
+    db.transaction(populateDB_success, transaction_error);
+    $('#busy').hide();
 }
 
 
@@ -49,9 +52,14 @@ function transaction_error(tx, error) {
 
 function getEmployee(tx) {
 	$('#busy').show();
-	var sql = "SELECT name, extension FROM directory WHERE organization_num =:id";
+	var sql = "SELECT name, extension FROM directory WHERE organization_num = " + id;
 	tx.executeSql(sql, [], getEmployee_success, transaction_err);
 }
+
+function populateDB_success() {
+	    dbCreated = true;
+	    db.transaction(getEmployees, transaction_error);
+	}
 
 function populateDB(tx) {
     $('#busy').show();
