@@ -58,7 +58,7 @@ function getEmployee(tx) {
 	alert("3");
 	var sql = "SELECT name, extension FROM directory WHERE organization_num = '" + id + "'";
 	alert(sql);
-	tx.executeSql(sql, [id], getEmployee_success, transaction_err);
+	tx.executeSql(sql, [], getEmployee_success, transaction_err);
 }
 
 function populateDB_success() {
@@ -90,6 +90,7 @@ function getEmployee_success(tx, results) {
 	$('#busy').hide();
 	var employee = results.rows.item(0);
 	var len = results.rows.length;
+	alert(len);
 	for (var i=0; i< len; i++) {
 	    var contact = results.rows.item(i);
 	    alert(contact.name);
