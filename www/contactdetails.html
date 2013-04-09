@@ -74,12 +74,14 @@ function populateDB(tx) {
     		");";
         tx.executeSql(sql);
         
-        tx.executeSql("INSERT INTO directory VALUES ('Alexander Chen', '301405', '6798'), " +
+	sql = "INSERT INTO directory VALUES ('Alexander Chen', '301405', '6798'), " +
 		      "('Alexander Chen', '301405', '6798'), " +
 		      "('Chenglin Cao', '301405', '8631'), " +
 		      "('Abraham Chen', '301405', '4088'), " +
 		      "('Alexander Chen', '301405', '6798'), " +
-			"('Neal Miller', '301405', '5548')");
+			"('Neal Miller', '301405', '5548');";
+	
+        tx.executeSql(sql);
 }
 
 function getEmployee_success(tx, results) {
