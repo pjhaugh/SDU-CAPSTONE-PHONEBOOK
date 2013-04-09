@@ -87,6 +87,7 @@ function getEmployee_success(tx, results) {
 	var len = results.rows.length;
 	for (var i=0; i< len; i++) {
 	    var contact = results.rows.item(i);
+	    alert(contact.name);
 	    $('#contactList').append('<li><a rel="external" href="tel:' + contact.organization_num + contact.extension+'">' + contact.name + '</a></li>');
 	}
 	setTimeout(function(){
