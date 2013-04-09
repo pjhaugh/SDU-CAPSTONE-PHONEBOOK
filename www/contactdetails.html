@@ -52,11 +52,8 @@ function transaction_error(tx, error) {
 
 function getEmployee(tx) {
 	$('#busy').show();
-	var sql = "select e.id, e.firstName, e.lastName, e.managerId, e.title, e.department, e.city, e.officePhone, e.cellPhone, " +
-				"e.email, e.picture, m.firstName managerFirstName, m.lastName managerLastName, count(r.id) reportCount " +
-				"from employee e left join employee r on r.managerId = e.id left join employee m on e.managerId = m.id " +
-				"where e.id=:id group by e.lastName order by e.lastName, e.firstName";
-	tx.executeSql(sql, [id], getEmployee_success);
+	var sql = "SELECT name, extension FROM directory WHERE organization_name = organization_name FROM organizations WHERE base_number=:id";
+	tx.executeSql(sql, [], getEmployee_success, transaction_err);
 }
 
 function getEmployee_success(tx, results) {
