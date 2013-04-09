@@ -55,7 +55,7 @@ function transaction_error(tx, error) {
 
 function getEmployee(tx) {
 	//var sql = "SELECT d FROM directory WHERE d.organization_name = '" + id + "'";
-	var sql = "SELECT d FROM directory";
+	var sql = "SELECT * FROM directory";
 	var output = tx.executeSql(sql);
 	alert("10");
 	alert(output.lists.item(0).name);
