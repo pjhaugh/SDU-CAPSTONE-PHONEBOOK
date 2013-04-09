@@ -18,12 +18,13 @@
 	
 	<div id="wrapper">
 	  	<ul id="contactList" class="icon-list"></ul>
+		<li><button onclick="$('li').hide(listStart())";>Load</button></li>
 	</div>
 
 	<div id="busy"/>Loading...</div>
 
 	<script src="js/phonegap.js"></script>
-	<script src="js/jquery.js"></script>
+	<!--<script src="js/jquery.js"></script>-->
     <script src="js/iscroll.js"></script>
     <script type="text/javascript">
 	var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
@@ -33,12 +34,14 @@ var id = getUrlVars()["id"];
 var db;
 
 
-$(document).ready(function(){
-	document.addEventListener("deviceready", function(){
+function listStart() {
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 2000000);
     db.transaction(populateDB, transaction_error);
-    db.transaction(getEmployee, transaction_error);}, false);
-});
+    db.transaction(getEmployee, transaction_error);
+}
+
+
+$(document).ready(listStart());
 
 function transaction_error(tx, error) {
 	$('#busy').hide();
