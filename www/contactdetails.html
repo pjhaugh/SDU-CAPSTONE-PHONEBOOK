@@ -39,7 +39,7 @@ function listStart() {
     if (!window.openDatabase) {
 	alert("Databases are unsupported in this browser.")
     }
-    db = window.openDatabase("ContactDirectoryD", "1.0", "PhoneBook", 2000000);
+    db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 2000000);
     alert("1");
     db.transaction(populateDB, transaction_error);
     alert("2");
@@ -86,10 +86,12 @@ function populateDB(tx) {
 
 function getEmployee_success(tx, results) {
 	$('#busy').hide();
+	alert("5");
 	var len = results.rows.length;
 	alert(len);
 	for (var i=0; i< len; i++) {
 	    var contact = results.rows.item(i);
+	    alert(contact.name);
 	    $('#contactList').append('<li><a rel="external" href="tel:' + contact.organization_num + contact.extension+'">' + '<p class="line1">'+contact.name + '</p></a></li>');
 	}
 	setTimeout(function(){
