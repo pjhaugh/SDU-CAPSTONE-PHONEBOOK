@@ -42,8 +42,6 @@ function listStart() {
 }
 
 
-$(document).ready(listStart());
-
 function transaction_error(tx, error) {
 	$('#busy').hide();
     alert("Database Error: " + error.code);
