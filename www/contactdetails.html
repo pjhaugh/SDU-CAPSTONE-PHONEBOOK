@@ -18,7 +18,7 @@
 	
 	<div id="wrapper">
 	  	<ul id="contactList" class="icon-list"></ul>
-		<li><button type="button" onclick="$('li').hide();">Load</button></li>
+		<li><button type="button" onclick="listStart();">Load</button></li>
 	</div>
 
 	<div id="busy"/>Loading...</div>
@@ -35,6 +35,7 @@ var db;
 
 
 function listStart() {
+    alert("FUCKYEAH");
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 2000000);
     db.transaction(populateDB, transaction_error);
     db.transaction(getEmployee, transaction_error);
