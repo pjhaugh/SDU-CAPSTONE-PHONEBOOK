@@ -39,7 +39,6 @@ var db;
 
 
 $(document).ready(function(){
-	alert("Made it!");
 	document.addEventListener("deviceready", function(){
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "Phonebook2", 200000);
     db.transaction(getEmployee, transaction_error);}, false);
