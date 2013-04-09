@@ -53,6 +53,8 @@ function transaction_error(tx, error) {
 
 function getEmployee(tx) {
 	var sql = "SELECT * FROM directory WHERE organization_num = '" + id + "'";
+	tx.executeSql(sql);
+	alert("passed");
 	tx.executeSql(sql, [], getEmployee_success, transaction_err);
 }
 
