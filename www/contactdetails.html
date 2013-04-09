@@ -35,7 +35,6 @@ var db;
 
 
 function listStart() {
-    alert(id);
     if (!window.openDatabase) {
 	alert("Databases are unsupported in this browser.")
     }
@@ -80,14 +79,13 @@ function populateDB(tx) {
 }
 
 function getEmployee_success(tx, results) {
-	alert("5");
+	$('#busy').show();
 	var len = results.rows.length;
-	alert(len);
 	for (var i=0; i< len; i++) {
 	    var contact = results.rows.item(i);
-	    alert(contact.name);
 	    $('#contactList').append('<li><a rel="external" href="tel:' + contact.organization_num + contact.extension+'">' + '<p class="line1">'+contact.name + '</p></a></li>');
 	}
+	$('#busy').hide();
 	setTimeout(function(){
 		scroll.refresh();
 	});
