@@ -40,7 +40,9 @@ function listStart() {
 	alert("Databases are unsupported in this browser.")
     }
     db = window.openDatabase("ContactDirectoryDB", "1.0", "PhoneBook1", 2000000);
+    alert("1");
     db.transaction(populateDB, transaction_error);
+    alert("2");
     db.transaction(populateDB_success, transaction_error);
     $('#busy').hide();
 }
@@ -80,7 +82,7 @@ function populateDB(tx) {
 		      "('Abraham Chen', '301405', '4088'), " +
 		      "('Alexander Chen', '301405', '6798'), " +
 			"('Neal Miller', '301405', '5548');";
-	
+	alert(sql);
         tx.executeSql(sql);
 }
 
