@@ -54,10 +54,8 @@ function transaction_error(tx, error) {
 }
 
 function getEmployee(tx) {
-	$('#busy').show();
-	alert("3");
 	var sql = "SELECT name, extension FROM directory WHERE organization_num = '" + id + "'";
-	alert(sql);
+	var output = tx.executeSql(sql);
 	tx.executeSql(sql, [], getEmployee_success, transaction_err);
 }
 
