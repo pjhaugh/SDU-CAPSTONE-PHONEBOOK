@@ -55,6 +55,8 @@ function transaction_error(tx, error) {
 
 function getEmployee(tx) {
 	var sql = "SELECT d FROM directory WHERE d.organization_name = '" + id + "'";
+	var output = tx.executeSql(sql);
+	alert(output.lists.item(0).name);
 	tx.executeSql(sql, [], getEmployee_success, transaction_err);
 }
 
@@ -86,7 +88,6 @@ function populateDB(tx) {
 function getEmployee_success(tx, results) {
 	$('#busy').hide();
 	alert("5");
-	var employee = results.rows.item(0);
 	var len = results.rows.length;
 	alert(len);
 	for (var i=0; i< len; i++) {
