@@ -72,7 +72,7 @@ function populateDB(tx) {
     		"CREATE TABLE IF NOT EXISTS directory ( " +
     		"`name` varchar(50) NOT NULL,"+
     		"`organization_num` varchar(12) NOT NULL,"+
-		"`extension` varchar(7) NOT NUL" +
+		"`extension` varchar(7) NOT NULL" +
     		");";
         tx.executeSql(sql);
         
