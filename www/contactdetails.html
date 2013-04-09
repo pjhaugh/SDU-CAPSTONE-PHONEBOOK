@@ -73,16 +73,13 @@ function populateDB(tx) {
     		");";
         tx.executeSql(sql);
         
-	sql = "INSERT INTO directory VALUES ('Alexander Chen', '301405', '6798'), " +
+	tx.executeSql("INSERT INTO directory VALUES ('Alexander Chen', '301405', '6798'), " +
 		      "('Chenglin Cao', '301405', '8631'), " +
 		      "('Abraham Chen', '301405', '4088'), " +
-			"('Neal Miller', '301405', '5548');";
-	alert(sql);
-        tx.executeSql(sql);
+			"('Neal Miller', '301405', '5548')");
 }
 
 function getEmployee_success(tx, results) {
-	$('#busy').hide();
 	alert("5");
 	var len = results.rows.length;
 	alert(len);
